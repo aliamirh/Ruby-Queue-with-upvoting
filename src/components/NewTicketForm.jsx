@@ -8,7 +8,11 @@ function NewTicketForm(props) {
 
   function handleNewTicketFormSubmission(event) {
     event.preventDefault();
-    props.onNewTicketCreation({names: _names.value, location: _location.value, issue: _issue.value});
+    props.onNewTicketCreation({
+      names: _names.value,
+      location: _location.value,
+      issue: _issue.value
+    });
     _names.value = '';
     _location.value = '';
     _issue.value = '';
@@ -16,23 +20,32 @@ function NewTicketForm(props) {
 
   return (
     <div>
-    <form onSubmit={handleNewTicketFormSubmission}>
-    <input
-    type='text'
-    id='names'
-    placeholder='Pair Names'
-    ref={(input) => {_names = input;}}/>
-    <input
-    type='text'
-    id='location'
-    placeholder='Location'
-    ref={(input) => {_location = input;}}/>
-    <textarea
-    id='issue'
-    placeholder='Describe your issue.'
-    ref={(textarea) => {_issue = textarea;}}/>
-    <button type='submit'>Help!</button>
-    </form>
+      <form onSubmit={handleNewTicketFormSubmission}>
+        <input
+          type='text'
+          id='names'
+          placeholder='Pair Names'
+          ref={input => {
+            _names = input;
+          }}
+        />
+        <input
+          type='text'
+          id='location'
+          placeholder='Location'
+          ref={input => {
+            _location = input;
+          }}
+        />
+        <textarea
+          id='issue'
+          placeholder='Describe your issue.'
+          ref={textarea => {
+            _issue = textarea;
+          }}
+        />
+        <button type='submit'>Help!</button>
+      </form>
     </div>
   );
 }
